@@ -10,6 +10,10 @@
 //   "dog",
 // ];
 
+() => {};
+
+//filter
+
 // //words.filter(word => word.length > 3)
 
 // function filter(arr, cb) {
@@ -142,7 +146,7 @@
 //   "dog",
 // ];
 
-const words_2 = [10, 15, 14, 100, 17, 12, 14, 3];
+//const words_2 = [10, 15, 14, 100, 17, 12, 14, 3];
 
 // function findLast(arr, cb) {
 //   for (let i = arr.length - 1; i >= 0; i -= 1) {
@@ -325,7 +329,9 @@ const words_2 = [10, 15, 14, 100, 17, 12, 14, 3];
 //   }
 //   return min;
 // }
+
 () => {};
+
 // console.log(sortMinLength(words));
 //https://maxcode.dev/problems/group-by-equality
 // https://maxcode.dev/problems/map-group-by
@@ -339,6 +345,7 @@ const words_2 = [10, 15, 14, 100, 17, 12, 14, 3];
 //   5: "quickbrownjumps",
 // });
 () => {};
+
 const words = [
   "the",
   "quick",
@@ -350,7 +357,6 @@ const words = [
   "lazy",
   "dog",
 ];
-() => {};
 
 () => {};
 // const words_3 = [
@@ -380,3 +386,221 @@ const words = [
 //console.log(group(["A", "B", "A", "C", "B", "B"], (a, b) => a === b));
 
 () => {};
+
+// map - group - by - advanced;
+
+// const employees = [
+//   { name: "James", income: 1000, profession: "developer", age: 23 },
+//   { name: "Robert", income: 1100, profession: "qa", age: 34 },
+//   { name: "John", income: 1200, profession: "designer", age: 32 },
+//   { name: "Mary", income: 1300, profession: "designer", age: 22 },
+//   { name: "Patricia", income: 1400, profession: "qa", age: 23 },
+//   { name: "Jennifer", income: 1500, profession: "developer", age: 45 },
+//   { name: "Max", income: 1600, profession: "developer", age: 27 },
+// ];
+
+// function groupBy(iterable, cb) {
+//   const res = new Map();
+//   for (let employee of iterable) {
+//     if (!res.has(employee.profession)) {
+//       res.set(employee.profession, [employee.income]);
+//     } else {
+//       res.get(employee.profession).push(employee.income);
+//     }
+//   }
+//   return res;
+// }
+// console.log(groupBy(employees, (employee) => employee.profession));
+
+// https://maxcode.dev/problems/multi-predicate
+// https://maxcode.dev/problems/compose
+// https://maxcode.dev/problems/once
+// https://maxcode.dev/problems/memo
+// https://maxcode.dev/problems/spy
+
+() => {};
+
+// const num = 20;
+// const num2 = 20;
+// const greaterThan53 = (num, num2) => {
+//   console.log(num + num2);
+// };
+// greaterThan53(60, 20);
+
+() => {};
+
+//multiPredicate
+
+// const greaterThan53 = (num) => num > 53;
+// const endsWithZero = (num) => num.toString().at(-1) === "0";
+
+// function multiPredicate(...fns) {
+//   return (num) => {
+//     // return fns.filter((fn) => fn(num) === false).length === 0;
+//     return fns.every((fn) => fn(num));
+//   };
+// }
+
+// const foo = multiPredicate(endsWithZero, greaterThan53);
+// console.log(foo(40)); // false
+// console.log(foo(99)); // false
+// console.log(foo(80)); // true
+
+() => {};
+
+// const sum = (a, b) => {
+//   return a + b;
+// };
+
+// const logName = (fn) => {
+//   return (...args) => {
+//     console.log(...args);
+//     return fn(...args);
+//   };
+// };
+
+// const wrappedSum = logName(sum);
+// const result = wrappedSum(2, 3);
+// console.log(result); // 5
+
+() => {};
+
+// compose
+
+// const double = (x) => x * 2;
+// const cube = (x) => x ** 3;
+// const inc = (x) => x + 1;
+
+// function compose(...fns) {
+//   return (x) => fns.reduceRight((acc, fn) => fn(acc), x);
+// }
+// const foo = compose(double, cube, inc);
+// // const res0 = double(cube(inc(0))); // 2
+
+// console.log(foo(0)); // 2
+// console.log(foo(1)); // 16
+// console.log(foo(2)); // 54
+
+() => {};
+
+// const sum = (a, b) => a + b;
+
+// function once(fn) {
+//   let oneCall = false;
+//   return function (...args) {
+//     if (!oneCall) {
+//       oneCall = true;
+//       return fn(...args);
+//     }
+//   };
+// }
+// const onceSum = once(sum);
+
+// console.log(onceSum(2, 3)); // 5
+// console.log(onceSum(5, 6)); // undefined
+// console.log(onceSum(2, 3)); // undefined
+// console.log(onceSum(1, 1)); // undefined
+
+() => {};
+
+//memo
+
+// function memo(fn) {
+//   const cache = new Map();
+//   //console.log(cache);
+//   return (x) => {
+//     if (!cache.has(x)) {
+//       cache.set(x, fn(x));
+//     }
+//     return cache.get(x);
+//   };
+// }
+// function double(x) {
+//   console.log(555);
+//   if (typeof x !== "number") {
+//     return null;
+//   }
+//   return x * 2;
+// }
+// const mDouble = memo(double);
+// console.log(mDouble("10")); // null
+// console.log(mDouble("10")); // null
+// console.log(mDouble("10")); // null
+// console.log(mDouble(10)); // 20
+// console.log(mDouble(10)); // 20
+// console.log(mDouble(10)); // 20
+// console.log
+//   mDouble({
+//     Lena: 23,
+//     Kolya: 25,
+//     Nata: 21,
+//   })
+
+() => {};
+
+//memo - advanced;
+
+// function memo(fn) {
+//   const cache = {};
+
+//   return (...args) => {
+//     if (Array.isArray(...args)) {
+//       args = args.flat(1);
+//     }
+//     // console.log(args);
+//     if (Object.hasOwn(cache, args)) {
+//       return cache[args];
+//     }
+//     cache[args] = fn(args);
+//     return cache[args];
+//   };
+// }
+
+// function add(args) {
+//   return args.reduce((acc, cur) => acc + cur, 0);
+// }
+// const mAdd = memo(add);
+// console.log(mAdd([5, 3, 9]));
+// console.log(mAdd([5, 3, 9]));
+// console.log(mAdd([5, 3, 9]));
+
+// console.log(mAdd(5, 3, 9));
+// console.log(mAdd(5, 3, 9));
+// console.log(mAdd(5, 3, 9));
+
+// console.log(
+//   mAdd({
+//     Lena: 23,
+//     Kolya: 25,
+//     Nata: 21,
+//   })
+// );
+
+() => {};
+//for of
+
+//spy
+
+// function spy(fn) {
+//   return (...args) => {
+//     console.log(...args);
+//     return fn(...args);
+//   };
+// }
+
+// function repeat(...args) {
+//   //console.log(args);
+
+//   return args[0].repeat(args[1]);
+// }
+
+// function callCount() {
+//   console.log(5);
+// }
+
+// const spyRepeat = spy(repeat);
+
+// // console.log(spyRepeat("abc", 2)); // === "abcabc"
+// // console.log(spyRepeat("xx", 4)); // === "xxxxxxxx"
+
+// console.log(spyRepeat.callCount()); // === 2
