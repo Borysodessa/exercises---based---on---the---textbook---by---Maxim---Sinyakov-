@@ -119,20 +119,20 @@
 // // Создайте функцию - декоратор repeatDecorator, которая принимает
 // // функцию и число n, и вызывает данную функцию n раз.
 
-function repeatDecorator(func, n) {
-  count = 0;
-  while (count < n) {
-    count += 1;
-    func();
-  }
-}
+// function repeatDecorator(func, n) {
+//   count = 0;
+//   while (count < n) {
+//     count += 1;
+//     func();
+//   }
+// }
 
-function greet() {
-  console.log("Привет!");
-}
+// function greet() {
+//   console.log("Привет!");
+// }
 
-const repeatedGreet = repeatDecorator(greet, 3);
-// Ожидаемый результат: "Привет!" выведено 3 раза
+// const repeatedGreet = repeatDecorator(greet, 3);
+// // Ожидаемый результат: "Привет!" выведено 3 раза
 
 () => {};
 
@@ -281,17 +281,16 @@ const repeatedGreet = repeatDecorator(greet, 3);
 // 1. Создайте функцию-декоратор shout, которая преобразует
 //результат выполнения функции в верхний регистр и добавляет восклицательный знак в конце.
 
-function shout(func) {
-  //console.log(func().toUpperCase() + "!");
-  return function () {
-    return func().toUpperCase() + "!";
-  };
-}
+// function shout(func) {
+//   return function () {
+//     return func().toUpperCase() + "!";
+//   };
+// }
 
-// Пример использования:
+// function saySomething() {
+//   return "hello";
+// }
 
-function saySomething() {
-  return "hello";
-}
-
-const shoutedSaySomething = shout(saySomething);
+// const shoutedSaySomething = shout(saySomething);
+// console.log(shoutedSaySomething());
+// console.log(shoutedSaySomething());

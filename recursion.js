@@ -220,25 +220,39 @@
 () => {};
 //Deep Compare
 
-const o1 = {
-  x: 1,
-  y: {
-    z: "qwe",
-    m: {
-      t: false,
-    },
-  },
-};
+// const o1 = {
+//   x: 1,
+//   y: {
+//     z: "qwe",
+//     m: {
+//       t: false,
+//     },
+//   },
+// };
 
-const o2 = {
-  x: 1,
-  y: {
-    z: "qwe",
-    m: {
-      t: false,
-    },
-  },
-};
+// const o2 = {
+//   x: 1,
+//   y: {
+//     z: "qwe",
+//     m: {
+//       t: false,
+//     },
+//   },
+// };
 
-function deepCompare(obj1, obj2) {}
-console.log(deepCompare(o1, o2)); // true
+// function deepCompare(obj1, obj2) {}
+//console.log(deepCompare(o1, o2)); // true
+
+() => {};
+
+//Напишите рекурсивную функцию для вычисления факториала числа.
+
+// function factorial(num) {
+//   if (num === 1) {
+//     return 1;
+//   }
+//   return num * factorial(num - 1);
+// }
+// console.log(factorial(5));
+
+() => {};
