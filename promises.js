@@ -1108,11 +1108,6 @@
 
 // Эта задача не на промисы. Предполагается, что вы решите задачу без использования промисов.
 
-// if (Math.random() < 0.5) {
-//   return err;
-// }
-// return res
-
 // const cube = (num, callback) => {
 //   callback(null, Math.pow(num, 3));
 // };
@@ -1127,8 +1122,8 @@
 
 // function compose(funcs) {
 //   return function (num, callback) {
-//     funcs.reverse().reduceRight(
-//       (acc, func) => {
+//     funcs.reduceRight(
+//       (func, acc) => {
 //         return (value, cb) => {
 //           func(value, (err, result) => {
 //             if (err) {
@@ -1179,3 +1174,189 @@
 // });
 
 () => {};
+
+// // file - system;
+
+// // Find all javascript files
+// // Существующий класс Folder имитирует работу директории файловой системы, которая работает асинхронно.
+
+// // Вам нужно вернуть массив из файлов с расширением .js. Файлы в ответе могут идти в любом порядке.
+
+// // Интерфейс Folder
+// // Так как файловая система работает асинхронно, методы класса Folder в качестве последнего
+// //  аргумента принимают колбек, который срабатывает, когда метод отработал.
+
+// // Интерфейс Folder
+// // Так как файловая система работает асинхронно, методы класса Folder в качестве последнего аргумента
+// //  принимают колбек, который срабатывает, когда метод отработал.
+
+//const root = Folder([
+// "1.js",
+// Folder(["qwe1.js", Folder(["qwe2.js", Folder(["qwe3.js"])])]),
+// "2.js",
+// "3.html",
+// Folder(["4.js", Folder(["6.js", "7.js"])]),
+// "5.js",
+//]);
+
+// function findAllJavascriptFiles(folder, callback) {
+//   const res = [];
+
+//   folder.size((size) => {
+//     if (size === 0) {
+//       callback(res);
+//     }
+//     let count = size;
+//     let finished = 0;
+//     for (let i = 0; i < size; i += 1) {
+//       folder.read(i, (x) => {
+//         if (typeof x === "string") {
+//           if (x.endsWith(".js")) {
+//             res.push(x);
+//           }
+//           finished += 1;
+//           if (count === finished) {
+//             callback(res);
+//           }
+//         } else {
+//           findAllJavascriptFiles(x, (files) => {
+//             res.push(...files);
+//             finished += 1;
+//             if (count === finished) {
+//               callback(res);
+//             }
+//           });
+//         }
+//       });
+//     }
+//   });
+// }
+// findAllJavascriptFiles(root, (result) => console.log(result));
+
+// function Folder(files) {
+//   const rand = () => Math.random() * 500;
+
+//   return {
+//     read: (index, cb) => void setTimeout(cb, rand(), files[index]),
+//     size: (cb) => void setTimeout(cb, rand(), files.length),
+//   };
+// }
+
+() => {};
+
+//products;
+// Фильтруем товары
+// Ваша задача — реализовать фильтрацию товаров в интернет - магазине,
+//   вернув список продуктов, подходящих по цене и находящихся на складе.
+// Функция принимает catalog, minPrice и maxPrice.
+// Функция должна вернуть промис, который разрешится массивом с отфильтрованными
+// товарами(см.пример ниже).Порядок объектов в массиве значения не имеет.
+// API каталога асинхронное и ненадежное.Методы объектов работают не мгновенно
+// и часто заканчиваются ошибками.В случае получения ошибки, мы должны
+// пытаться выполнять метод повторно, пока не получим нужный ответ.
+// Описание API
+// У категории есть три метода.Каждый принимает только колбэк, который
+// срабатывает, когда функция завершила выполнение.Колбэк принимает два аргумента
+//  — ошибку и результат работы функции.Если ошибка равна null, то функция завершилась корректно.
+// На тайпскрипте описание классов выглядело бы так.Если вы не понимаете эту запись,
+//   то в конце условия есть пример реализации этих классов.
+
+async function filterProducts(catalog, minPrice, maxPrice) {
+  const fiteredProduct = [];
+}
+function promisifyCatalog(getName) {
+  return getName(cb);
+  return new Promise((resolve, reject) => {
+    resolve();
+  });
+}
+
+filterProducts(catalog, minPrice, maxPrice).then((products) =>
+  console.log(products)
+);
+const minPrice = 300,
+  maxPrice = 1500;
+
+const catalog = new Category("Catalog", true, [
+  new Category("Electronics", true, [
+    new Category("Smartphones", true, [
+      new Product("Smartphone 1", true, 1000),
+      new Product("Smartphone 2", true, 900),
+      new Product("Smartphone 3", false, 900),
+      new Product("Smartphone 4", true, 900),
+      new Product("Smartphone 5", true, 900),
+    ]),
+    new Category("Laptops", true, [
+      new Product("Laptop 1", false, 1200),
+      new Product("Laptop 2", true, 900),
+      new Product("Laptop 3", true, 1500),
+      new Product("Laptop 4", true, 1600),
+    ]),
+  ]),
+  new Category("Books", true, [
+    new Category("Fiction", false, [
+      new Product("Fiction book 1", true, 350),
+      new Product("Fiction book 2", false, 400),
+    ]),
+    new Category("Non-Fiction", true, [
+      new Product("Non-Fiction book 1", true, 250),
+      new Product("Non-Fiction book 2", true, 300),
+      new Product("Non-Fiction book 3", true, 400),
+    ]),
+  ]),
+]);
+
+function helper(cb, value, ok = true, ms = 10) {
+  setTimeout(() => {
+    if (ok) {
+      cb(null, value); // success
+    } else {
+      cb("error"); // bad luck
+    }
+  }, ms);
+}
+
+class Category {
+  #name;
+  #inStock;
+  #children;
+
+  constructor(name, inStock, children) {
+    this.#name = name;
+    this.#inStock = inStock;
+    this.#children = children;
+  }
+
+  getName(cb) {
+    helper(cb, this.#name);
+  }
+  checkInStock(cb) {
+    helper(cb, this.#inStock);
+  }
+  getChildren(cb) {
+    helper(cb, this.#children);
+  }
+}
+
+class Product {
+  #name;
+  #inStock;
+  #price;
+
+  constructor(name, inStock, price) {
+    this.#name = name;
+    this.#inStock = inStock;
+    this.#price = price;
+  }
+
+  getName(cb) {
+    helper(cb, this.#name);
+  }
+  checkInStock(cb) {
+    helper(cb, this.#inStock);
+  }
+  getPrice(cb) {
+    helper(cb, this.#price);
+  }
+}
+console.log(Category.getName());

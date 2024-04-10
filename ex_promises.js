@@ -246,4 +246,39 @@
 
 () => {};
 
-function cub() {}
+//Напишите функцию, которая делает несколько асинхронных запросов и возвращает Promise с результатом всех запросов.
+
+() => {};
+
+//Напишите функцию, которая принимает время в миллисекундах и возвращает Promise, который разрешается через это время.
+
+// function delay(ms) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(1), ms);
+//   }).then((value) => console.log(value));
+// }
+// delay(1000);
+
+() => {};
+
+//Создайте функцию, которая принимает массив чисел и возвращает Promise с их средним значением.
+
+// function average(arr) {
+//   return new Promise((resolve, reject) => {
+//     resolve(arr.reduce((acc, curr) => acc + curr, 0) / arr.length);
+//   }).then((res) => console.log(res));
+// }
+// average([1, 2, 3, 4, 5, 6]);
+
+() => {};
+
+// Создайте функцию, которая принимает две функции(resolve и reject) и возвращает Promise, который разрешается,
+// если resolve вызывается, и отклоняется, если reject вызывается.
+
+function returnedPromise(a) {
+  return new Promise((resolve, reject) => {
+    resolve(a);
+  }).then((value) => console.log(value));
+}
+returnedPromise(100);
+//() => {};
