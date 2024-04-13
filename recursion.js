@@ -506,7 +506,9 @@
 //   return count + numOfOccurrences(arr.slice(1), num);
 // }
 // console.log(numOfOccurrences(arr, 4));
+
 () => {};
+
 //Напишите рекурсивную функцию для вычисления факториала числа.
 
 // function factorial(n) {
@@ -527,4 +529,156 @@
 //   return (res = fibonachi(n - 1) + fibonachi(n - 2));
 // }
 // console.log(fibonachi(6));
+
 () => {};
+
+//Используя рекурсию, напишите функцию для подсчета количества цифр в числе.
+
+// function quantityNum(n) {
+//   if (n.length === 0) {
+//     return 0;
+//   }
+//   const str = String(n);
+//   const count = str[0] !== 0 ? 1 : 0;
+//   return count + quantityNum(str.slice(1));
+// }
+// console.log(quantityNum(12356));
+
+() => {};
+
+//сравнить объекты
+
+// const o1 = {
+//   x: 1,
+//   y: {
+//     z: "qwe",
+//     m: {
+//       t: false,
+//     },
+//   },
+// };
+
+// const o2 = {
+//   x: 1,
+//   y: {
+//     z: "qwe",
+//     m: {
+//       t: false,
+//     },
+//   },
+// };
+
+// function deepCompare(o1, o2) {
+//   if (typeof o1 === null && typeof o2 === null) {
+//   }
+//   if (typeof o1 === "object" && typeof o2 === "object") {
+//     const keys1 = Object.keys(o1);
+//     const keys2 = Object.keys(o2);
+
+//     if (keys1.length !== keys2.length) {
+//       return false;
+//     }
+
+//     for (let key of keys1) {
+//       if (!deepCompare(o1[key], o2[key])) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   } else {
+//     return o1 === o2;
+//   }
+// }
+// console.log(deepCompare(o1, o2));
+
+() => {};
+
+//Создайте рекурсивную функцию, которая возвращает сумму чисел от 1 до n.
+
+// function sum(n) {
+//   if (n === 0) {
+//     return 0;
+//   }
+//   return n + sum(n - 1);
+// }
+// console.log(sum(3));
+
+() => {};
+
+//Используя рекурсию, напишите функцию для перевода числа из десятичной системы в двоичную.
+
+// function decimalToBinary(n) {
+//   if (n < 1) {
+//     return "";
+//   }
+//   return decimalToBinary(Math.floor(n / 2)).concat(n % 2);
+// }
+// console.log(decimalToBinary(5));
+
+() => {};
+
+//Разработайте рекурсивную функцию для вычисления наибольшего общего делителя (НОД) двух чисел.
+// function findGCD(a, b) {
+//   if (b === 0) {
+//     return a;
+//   }
+//   return findGCD(b, a % b);
+// }
+// console.log(findGCD(15, 25));
+
+() => {};
+
+//Напишите рекурсивную функцию для подсчета количества единиц в двоичном представлении числа.
+
+// function findOnes(n) {
+//   if (n < 1) {
+//     return "";
+//   }
+//   const bin = findOnes(Math.floor(n / 2)) + (n % 2);
+//   return +bin;
+// }
+// console.log(findOnes(15));
+
+() => {};
+
+//Используйте рекурсию для нахождения минимального элемента в массиве.
+
+// function findMin(arr) {
+//   if (arr.length === 0) {
+//     return 0;
+//   }
+
+//   let rest = n.slice(1);
+//   return arr[0] < findMin(rest) ? n[0] : findMin(rest);
+// }
+// console.log(findMin([1, 8, 9, -2, 4]));
+
+() => {};
+
+//Создайте рекурсивную функцию для вычисления суммы элементов четных позиций в массиве.
+
+// function sumEvens(arr) {
+//   if (arr.length === 0) {
+//     return 0;
+//   }
+//   const rest = arr.slice(1);
+//   return arr[0] % 2 === 0 ? arr[0] + sumEvens(rest) : sumEvens(rest);
+// }
+// console.log(sumEvens([1, 8, 9, 2, 4]));
+
+() => {};
+
+//Напишите рекурсивную функцию для нахождения количества вхождений заданного элемента в массив.
+
+// function findOccurrences(arr, el) {
+//   if (arr.length === 0) {
+//     return [];
+//   }
+//   const rest = arr.slice(1);
+
+//   return el === arr[0]
+//     ? findOccurrences(rest, el) + arr[0]
+//     : findOccurrences(rest, el);
+// }
+
+// console.log(findOccurrences([1, 8, 1, 9, 2, 2, 5, 1, 3, 5], 1));
